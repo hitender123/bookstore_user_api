@@ -1,14 +1,14 @@
 package app
 
 import (
-	controller "command-line-arguments/home/vagrant/goprojects/src/github.com/hitender123/bookstore_user_api/controller/ping_controller.go"
+	controller "github.com/hitender123/bookstore_users_api/controller/users"
 
-	"github.com/hitender123/bookstore_users-api/controllers/ping"
+	"github.com/hitender123/bookstore_users_api/controller/ping"
 )
 
 func mapUrls() {
 	router.GET("/ping", ping.Ping)
-	router.Get("/user/:id", controller.GetUser)
-	router.Post("/user/create", controller.CreateUser)
-	router.GET("/user/search", controller.SearchUser)
+	router.Get("/users/:id", controller.GetUser)
+	router.Post("/users/create", controller.CreateUser)
+	router.GET("/users/search", controller.SearchUser)
 }
