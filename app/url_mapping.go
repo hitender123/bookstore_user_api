@@ -1,9 +1,9 @@
 package app
 
 import (
-	controller "github.com/hitender123/bookstore_users_api/controller/users"
+	controller "github.com/hitender123/bookstore_user_api/controller/users"
 
-	"github.com/hitender123/bookstore_users_api/controller/ping"
+	"github.com/hitender123/bookstore_user_api/controller/ping"
 )
 
 func mapUrls() {
