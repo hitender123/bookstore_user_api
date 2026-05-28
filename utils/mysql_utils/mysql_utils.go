@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"vijayapi/users_api/utils/errors"
+	"github.com/hitender123/bookstore_user_api/utils/errors"
 
 	"github.com/go-sql-driver/mysql"
 )

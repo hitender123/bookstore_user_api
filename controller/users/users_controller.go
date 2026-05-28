@@ -5,12 +5,11 @@ import (
 	"net/http"
 	"strconv"
 
-	//"github.com/hitender123/bookstore_user_api/model/users"
+	"github.com/hitender123/bookstore_user_api/model/users"
 
-	"vijayapi/users_api/model/users"
-	"vijayapi/users_api/services"
-	"vijayapi/users_api/utils/common"
-	"vijayapi/users_api/utils/errors"
+	"github.com/hitender123/bookstore_user_api/services"
+	"github.com/hitender123/bookstore_user_api/utils/common"
+	"github.com/hitender123/bookstore_user_api/utils/errors"
 
 	"github.com/gin-gonic/gin"
 )

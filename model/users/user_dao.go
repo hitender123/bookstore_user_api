@@ -2,10 +2,11 @@ package users
 
 import (
 	"fmt"
-	"vijayapi/users_api/datasource/mysql/user_db"
-	"vijayapi/users_api/logger"
-	"vijayapi/users_api/utils/errors"
-	"vijayapi/users_api/utils/mysql_utils"
+
+	"github.com/hitender123/bookstore_user_api/datasource/mysql/user_db"
+	"github.com/hitender123/bookstore_user_api/logger"
+	"github.com/hitender123/bookstore_user_api/utils/errors"
+	"github.com/hitender123/bookstore_user_api/utils/mysql_utils"
 )
 
 const (

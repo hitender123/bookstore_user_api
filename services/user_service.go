@@ -1,8 +1,8 @@
 package services
 
 import (
-	"vijayapi/users_api/model/users"
-	"vijayapi/users_api/utils/errors"
+	"github.com/hitender123/bookstore_user_api/model/users"
+	"github.com/hitender123/bookstore_user_api/utils/errors"
 )
 
 var (
