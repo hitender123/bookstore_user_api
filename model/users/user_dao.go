@@ -21,7 +21,7 @@ const (
 func (user *User) Get() *errors.RestError {
 	stmt, err := user_db.Client.Prepare(queryGetUser)
 	if err != nil {
-		logger.Error("error when trying to get user", err)
+		logger.Error("error when trying to get user err", err)
 		return errors.NewInternalServerError("database error ")
 	}
 	defer stmt.Close()
