@@ -76,7 +76,7 @@ func (user *User) Delete() *errors.RestError {
 		logger.Error("error when trying to prepare delete user statement", err)
 		return errors.NewInternalServerError("database error")
 	}
-	defer stmt.Close()
+	defer common.SafeClose(stmt)
 
 	if _, err = stmt.Exec(user.Id); err != nil {
 		// logger.Error("error when trying to delete user", err)
