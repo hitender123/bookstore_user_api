@@ -82,14 +82,14 @@ func CreateUser(c *gin.Context) {
 		user.Finger5 = "image5.bmp"
 	}*/
 	//------------------------//
-	fmt.Println(user)
+	//fmt.Println(user)
 	result, err := services.UsersService.CreateUser(user)
 	if err != nil {
 		c.JSON(err.Status, err)
 		return
 	}
 	c.JSON(http.StatusCreated, result)
-	return
+	//return
 }
 
 func DecodeAndSaveImage(base64Data string, filename string) *errors.RestError {

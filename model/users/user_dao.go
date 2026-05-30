@@ -47,7 +47,7 @@ func (user *User) Save() *errors.RestError {
 		fmt.Println(err)
 		return mysql_utils.ParseError(err)
 	}
-	userId, err := result.LastInsertId()
+	userId, _ := result.LastInsertId()
 	user.Id = userId
 	return nil
 }
