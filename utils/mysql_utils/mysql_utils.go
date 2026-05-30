@@ -24,7 +24,7 @@ func ParseError(err error) *errors.RestError {
 	fmt.Println(sqlErr.Number)
 	switch sqlErr.Number {
 	case 1062:
-		return errors.NewBadRequestError(fmt.Sprintf("user name already exist"))
+		return errors.NewBadRequestError("user name already exist")
 	case 1146:
 		return errors.NewInternalServerError("database table not found")
 	}
