@@ -5,7 +5,8 @@ import (
 
 	"github.com/hitender123/bookstore_user_api/datasource/mysql/user_db"
 	"github.com/hitender123/bookstore_user_api/logger"
-	"github.com/hitender123/bookstore_user_api/utils"
+
+	"github.com/hitender123/bookstore_user_api/utils/common"
 	"github.com/hitender123/bookstore_user_api/utils/errors"
 	"github.com/hitender123/bookstore_user_api/utils/mysql_utils"
 )
@@ -26,7 +27,7 @@ func (user *User) Get() *errors.RestError {
 		return errors.NewInternalServerError("database error ")
 	}
 
-	defer utils.SafeClose(stmt)
+	defer common.SafeClose(stmt)
 
 	result := stmt.QueryRow(user.Id)
 	if err := result.Scan(&user.Id, &user.UserId, &user.UniqueName, &user.BatchId, &user.Email, &user.Phone); err != nil {
@@ -42,7 +43,7 @@ func (user *User) Save() *errors.RestError {
 		logger.Error("error when trying to create user", err)
 		return errors.NewInternalServerError("database error")
 	}
-	defer utils.SafeClose(stmt)
+	defer common.SafeClose(stmt)
 
 	// user.DateCreated = date_utils.GetNowDBFormat()
 	result, err := stmt.Exec(user.UserId, user.UniqueName, user.BatchId, user.Address, user.Phone, user.Finger1, user.Finger2, user.Finger3, user.Finger4, user.Finger5)
@@ -61,7 +62,7 @@ func (user *User) Update() *errors.RestError {
 		logger.Error("error when trying to update user", err)
 		return errors.NewInternalServerError("database error")
 	}
-	defer utils.SafeClose(stmt)
+	defer common.SafeClose(stmt)
 	_, err = stmt.Exec(user.UniqueName, user.Email, user.Id)
 	if err != nil {
 		return mysql_utils.ParseError(err)

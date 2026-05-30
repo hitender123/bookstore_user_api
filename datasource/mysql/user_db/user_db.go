@@ -8,7 +8,7 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/hitender123/bookstore_user_api/utils"
+	"github.com/hitender123/bookstore_user_api/utils/common"
 	"github.com/joho/godotenv"
 )
 
@@ -68,7 +68,7 @@ func init() {
 		}
 
 		log.Printf("Failed to ping database (attempt %d/%d): %v", attempt, MAX_RETRIES, err)
-		defer utils.SafeClose(Client)
+		common.SafeClose(Client)
 		time.Sleep(RETRY_DELAY)
 	}
 	panic(fmt.Sprintf("Failed to connect to database after %d attempts: %v", MAX_RETRIES, err))
