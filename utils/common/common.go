@@ -3,6 +3,8 @@ package common
 import (
 	"encoding/base64"
 	"image"
+	"io"
+	"log"
 	"os"
 	"strings"
 
@@ -18,7 +20,7 @@ func SaveAsBMP(binaryData []byte, filename string) error {
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer SafeClose(file)
 
 	img, _, err := image.Decode(strings.NewReader(string(binaryData)))
 	if err != nil {
@@ -26,4 +28,10 @@ func SaveAsBMP(binaryData []byte, filename string) error {
 	}
 
 	return bmp.Encode(file, img)
+}
+
+func SafeClose(c io.Closer) {
+	if err := c.Close(); err != nil {
+		log.Printf("close failed: %v", err)
+	}
 }
